@@ -44,24 +44,6 @@ class FlexStatement(object):
         elif switch == 'trade':
             self.trade = clean_trade(stmt)
 
-        ('\n'
-         '        self.mtm_ytd = pd.DataFrame({\n'
-         '            \'Stocks\': self.stock_perf.mtmYTD,\n'
-         '            \'Options\': self.option_perf_underlying.mtmYTD,\n'
-         '            \'Dividends\': dividends_by_symbol,\n'
-         '        }).fillna(0)\n'
-         '\n'
-         '        self.realized = pd.DataFrame({\n'
-         '            \'Stocks\': self.stock_perf.realSTYTD,\n'
-         '            \'Options\': self.option_perf_underlying.realSTYTD,\n'
-         '            \'Dividends\': dividends_by_symbol,\n'
-         '        }).fillna(0)\n'
-         '\n'
-         '        self.mtm_ytd[\'Total\'] = self.mtm_ytd.sum(1)\n'
-         '        self.realized[\'Total\'] = self.realized.sum(1)\n'
-         '\n'
-         '        ')
-
     def get_lxml_root(self):
         tree = lxml_objectify.parse(open(self.path, 'rb'))
         root = tree.getroot()
@@ -194,7 +176,7 @@ def save_df(df, path):
 
 
 if __name__ == '__main__':
-    query_id_list = 'YOUR DICT"
+    query_id_list = 'YOUR DICT'
     token = 'YOUR TOKEN'
 
     for tbl, query_id in query_id_list.items():
