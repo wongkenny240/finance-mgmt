@@ -1,6 +1,5 @@
 import pandas as pd
 from sqlalchemy import create_engine, text
-import lxml.objectify as lxml_objectify
 import os
 
 database_url = os.environ(['DATABASE_URL'])
@@ -78,10 +77,6 @@ def write_db_from_csv_uniq(tbl_name, path):
     write_db_uniq(tbl_name, df)
     return
 
-
-def get_lxml_root(str):
-    root = lxml_objectify.fromstring(str)
-    return root.FlexStatements.FlexStatement
 
 
 if __name__ == '__main__':
