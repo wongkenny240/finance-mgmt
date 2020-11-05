@@ -86,24 +86,11 @@ def get_lxml_root(str):
 
 if __name__ == '__main__':
     my_query = '''
-    SELECT * from trade;
+    SELECT * from xx;
     '''
     df = read_db(my_query)
     print(df)
 
-    write_db_uniq('trade', df)
+    write_db_uniq('xx', df)
 
-    """
-    my_query = '''
-    SELECT * from xml_response;
-    '''
 
-    xml_table = read_db(my_query)
-    print(xml_table)
-    df_len = len(xml_table)
-    for index in range(df_len):
-        xml_str = xml_table.iloc[index, 1]
-        print(xml_table.iloc[index, 1])
-        print(get_lxml_root(xml_str))    
-
-    """
